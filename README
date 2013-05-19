@@ -1,0 +1,9 @@
+- This is a quick sample app to show how iTunesLibrary.framework works.
+
+- In order to use iTunesLibrary.framework, your application must be codesigned with a Mac developer profile from Apple.
+-- This is the same thing that Gatekeeper looks for.
+-- If you see an error involving OSStatusError 100005, it means that your app is not codesigned.
+-- This sample app sets CODE_SIGNING_IDENTITY to a generic "Mac Developer", but, you may wish to change this to your own identity.
+
+- When setting up a new project, you will need to set the Framework Search Path to include /Library/Frameworks.
+-- This is because /Library/Frameworks is a nonstandard location for a system framework, and Xcode doesn't search it by default.
