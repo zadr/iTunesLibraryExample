@@ -12,9 +12,13 @@
 #import <iTunesLibrary/ITLibArtist.h>
 #import <iTunesLibrary/ITLibAlbum.h>
 
+#import <AVFoundation/AVFoundation.h>
+
 @interface MYAppDelegate ()
 @property (nonatomic, strong) ITLibrary *library;
 @property (nonatomic, strong) NSArray *sortedLibraryItems;
+
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @end
 
 @implementation MYAppDelegate
@@ -54,6 +58,10 @@
 	return nil;
 }
 
+- (void) tableViewSelectionDidChange:(NSNotification *) notification {
+	[self.window.toolbar validateVisibleItems];
+}
+
 - (void) tableView:(NSTableView *) tableView didClickTableColumn:(NSTableColumn *) tableColumn {
 	if ([tableColumn.identifier isEqualToString:@"name"]) {
 		self.sortedLibraryItems = [self.library.allMediaItems sortedArrayUsingComparator:^(id one, id two) {
@@ -71,5 +79,34 @@
 
 	[tableView reloadData];
 	[tableView deselectColumn:[tableView columnWithIdentifier:tableColumn.identifier]];
+}
+
+#pragma mark -
+
+- (IBAction) playSelectedSong:(id) sender {
+	if (self.tableView.selectedRow == -1) {
+		return;
+	}
+
+	ITLibMediaItem *selectedItem = self.sortedLibraryItems[self.tableView.selectedRow];
+	if (selectedItem.locationType != ITLibMediaItemLocationTypeFile) {
+		NSLog(@"We can only play local files! Unable to play %@ by %@ from %@", selectedItem.title, selectedItem.artist.name, selectedItem.album.title);
+
+		return;
+	}
+
+	if ([self.audioPlayer.url isEqual:selectedItem.location]) {
+		[self.audioPlayer play];
+	} else {
+		[self.audioPlayer stop];
+
+		NSError *error = nil;
+
+		self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:selectedItem.location error:&error];
+
+		if (!self.audioPlayer) {
+			NSLog(@"%@ for %@", error, selectedItem.location);
+		}
+	}
 }
 @end

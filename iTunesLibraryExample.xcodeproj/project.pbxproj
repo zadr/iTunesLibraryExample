@@ -15,6 +15,7 @@
 		9243BF4A1749714E0081DF0B /* iTunesLibraryExample.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 9243BF491749714E0081DF0B /* iTunesLibraryExample.entitlements */; };
 		9243BF4B1749718C0081DF0B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9243BF41174970D60081DF0B /* MainMenu.xib */; };
 		9243BF4F174972F20081DF0B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9243BF4E174972F20081DF0B /* LICENSE */; };
+		9258DB201749AABA00EAF95D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9258DB1F1749AABA00EAF95D /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9243BF491749714E0081DF0B /* iTunesLibraryExample.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iTunesLibraryExample.entitlements; sourceTree = SOURCE_ROOT; };
 		9243BF4C174971DC0081DF0B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
 		9243BF4E174972F20081DF0B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		9258DB1F1749AABA00EAF95D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9258DB201749AABA00EAF95D /* AVFoundation.framework in Frameworks */,
 				9243BF39174967F40081DF0B /* iTunesLibrary.framework in Frameworks */,
 				924098B7174967A7004F307F /* Cocoa.framework in Frameworks */,
 			);
@@ -71,6 +74,7 @@
 		924098B5174967A7004F307F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9258DB1F1749AABA00EAF95D /* AVFoundation.framework */,
 				9243BF38174967F40081DF0B /* iTunesLibrary.framework */,
 				924098B6174967A7004F307F /* Cocoa.framework */,
 				924098B8174967A7004F307F /* Other Frameworks */,

@@ -10,4 +10,6 @@
 @interface MYAppDelegate : NSObject <NSApplicationDelegate>
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTableView *tableView;
+
+- (IBAction) playSelectedSong:(id) sender;
 @end
